@@ -38,7 +38,7 @@ const Home: React.FC = (props: Props) => {
   return (
     <div>
       <h1>Product List</h1>
-      <div className="grid-cols-3">
+      <div className="products__container">
         {products.map((product: Product) => (
           <Card title={product.title} description={product.description} price={product.price} key={product.id} imageUrl={product.image}/>
         ))}
