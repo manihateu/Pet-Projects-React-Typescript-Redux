@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../reducers/rootReducer';
 import { toggleSidebar } from '../../actions/actions';
 import "../../styles/Sidebar.scss"
-import Card from '../Card/Card';
+import CartProductComponent from '../CartProduct/CartProductComponent';
 
 const Sidebar: React.FC = () => {
   const isOpen = useSelector((state: RootState) => state.sidebar.isOpen);
@@ -15,6 +15,7 @@ const Sidebar: React.FC = () => {
     dispatch(toggleSidebar());
   };
 
+  const cartProducts = useSelector((state: RootState) => state.cart.products);
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar__container__close-button">
@@ -25,7 +26,9 @@ const Sidebar: React.FC = () => {
         </button>
       </div>
       <div className="sidebar__content">
-
+      {cartProducts.map((product) => (
+        <CartProductComponent key={product.id} product={product}/>
+      ))}
       </div>
     </div>
   );

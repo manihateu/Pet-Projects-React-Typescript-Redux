@@ -1,6 +1,14 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 
+interface CartProduct {
+    id: string;
+    title: string;
+    price: number;
+    image: string;
+    count: number;
+  }
+
 export const toggleSidebar = () => {
     return {
       type: 'TOGGLE_SIDEBAR',
@@ -26,3 +34,13 @@ export const toggleSidebar = () => {
   export const updateProduct = (productId: string, updatedData: any) => {
     return { type: 'UPDATE_PRODUCT', payload: { productId, updatedData } };
   };
+
+  export const addProductToCart = (product: CartProduct) => ({
+    type: 'ADD_PRODUCT_TO_CART',
+    payload: product,
+  });
+
+  export const removeProductFromCart = (productId: string) => ({
+    type: 'REMOVE_PRODUCT_FROM_CART',
+    payload: productId,
+  });

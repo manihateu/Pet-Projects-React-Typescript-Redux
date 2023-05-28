@@ -7,6 +7,7 @@ import { AnyAction } from 'redux';
 import Card from '../Card/Card';
 import "../../styles/Home.scss"
 
+
 type Props = {}
 
 interface Product {
