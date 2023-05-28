@@ -1,1 +1,1 @@
-my shop pet-project
+This is a project of a simple store with an open api using technologies - react, redux,axios, typescript. In redux state, I see such states as sidebar and products
