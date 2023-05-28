@@ -1,13 +1,8 @@
 import axios from "axios";
 import { Dispatch } from "redux";
+import { CartProduct } from "../reducers/cartReducer";
 
-interface CartProduct {
-    id: string;
-    title: string;
-    price: number;
-    image: string;
-    count: number;
-  }
+
 
 export const toggleSidebar = () => {
     return {

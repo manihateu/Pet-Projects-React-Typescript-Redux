@@ -1,6 +1,6 @@
 // productsReducer.ts
 
-interface Product {
+export interface Product {
     id: string;
     title: string;
     description: string;
@@ -8,7 +8,7 @@ interface Product {
     image: string;
   }
   
-  interface ProductsState {
+  export  interface ProductsState {
     loading: boolean;
     error: string | null;
     products: Product[];
