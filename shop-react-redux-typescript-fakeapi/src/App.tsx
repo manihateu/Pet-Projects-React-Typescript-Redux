@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 
 type Props = {}
 
-const App: FC = (props: Props) => {
+const App: React.FC = (props: Props) => {
   return (
     <div className='app'>
       <Header/>
