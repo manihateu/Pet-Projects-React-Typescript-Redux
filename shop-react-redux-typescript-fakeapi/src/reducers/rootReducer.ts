@@ -1,4 +1,3 @@
-// rootReducer.ts
 
 import { combineReducers } from 'redux';
 import sidebarReducer, { SidebarState } from './sidebarReducer';

@@ -26,9 +26,13 @@ const Sidebar: React.FC = () => {
         </button>
       </div>
       <div className="sidebar__content">
-      {cartProducts.map((product) => (
-        <CartProductComponent key={product.id} product={product}/>
-      ))}
+      {cartProducts.length === 0 ? (
+        <div className="empty__cart__text">Корзина пуста</div>
+      ) : (
+        cartProducts.map((product) => (
+          <CartProductComponent key={product.id} product={product} />
+        ))
+      )}
       </div>
     </div>
   );

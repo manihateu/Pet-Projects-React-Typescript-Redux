@@ -16,6 +16,12 @@
   .sidebar.open {
     transform: translateX(calc(-250px - 1rem));
   }
+
+.empty__cart__text{
+  color: #333;
+  margin-left: auto;
+  margin-right: auto;
+}
   
 @media (max-width: 330px) {
     .sidebar{
