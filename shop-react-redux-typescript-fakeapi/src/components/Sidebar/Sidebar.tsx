@@ -1,38 +1,41 @@
-// Sidebar.tsx
-
-import React from 'react';
+import { selectSideBarIsOpen } from '@/src/store/selectors/sidebarSelector';
+import { selectProducts } from '@/src/store/selectors/cartProductSelector';
+import CartProductComponent from '../CartProductComponent/CartProductComponent';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../reducers/rootReducer';
-import { toggleSidebar } from '../../actions/actions';
-import "../../styles/Sidebar.scss"
-import CartProductComponent from '../CartProduct/CartProductComponent';
+import styles from './Sidebar.module.scss';
+import { toggleSidebar } from '../../store/actions';
+import closeIcon from '../icons/closeIcon.svg'
+import React from 'react';
+import Image from 'next/image';
+import { CartProduct } from '@/src/store/reducers/cartReducer';
 
 const Sidebar: React.FC = () => {
-  const isOpen = useSelector((state: RootState) => state.sidebar.isOpen);
+  const isOpen = useSelector(selectSideBarIsOpen);
+  const cartProducts = useSelector(selectProducts);
   const dispatch = useDispatch();
 
   const handleToggleSidebar = () => {
     dispatch(toggleSidebar());
   };
 
-  const cartProducts = useSelector((state: RootState) => state.cart.products);
   return (
-    <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-      <div className="sidebar__container__close-button">
-        <button className='sidebar__close-button' onClick={handleToggleSidebar}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="" viewBox="0 0 16 16">
-            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-          </svg>
+    <div className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
+      <div className={styles.sidebar__container__close_button}>
+        <button
+          className={styles.sidebar__close_button}
+          onClick={handleToggleSidebar}
+        >
+          <Image className={styles.header__icon} src={closeIcon} alt="Icon" width={16} height={16}/>        
         </button>
       </div>
-      <div className="sidebar__content">
-      {cartProducts.length === 0 ? (
-        <div className="empty__cart__text">Корзина пуста</div>
-      ) : (
-        cartProducts.map((product) => (
-          <CartProductComponent key={product.id} product={product} />
-        ))
-      )}
+      <div className={styles.sidebar__content}>
+        {cartProducts.length === 0 ? (
+          <div className={styles.empty__cart__text}>Корзина пуста</div>
+        ) : (
+          cartProducts.map((product: CartProduct) => (
+            <CartProductComponent key={product.id} product={product} />
+          ))
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,27 @@
+.productPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: absolute;
+    top: 0
+  }
+  
+  .productImage {
+    margin-right: 20px;
+  }
+  
+  .productInfo {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 16px;
+    line-height: 1.5;
+  }

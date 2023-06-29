@@ -1,0 +1,112 @@
+@import url('../../styles/constants.scss');
+
+.sidebar {
+    position: fixed;
+    bottom: 0;
+    right: -250px;
+    height: calc(100% - 105px);
+    margin-bottom: 0.5rem;
+    width: 250px;
+    background-color: $main-color;
+    transition: transform 0.3s ease-out;
+    transform: translateX(0);
+    border-radius: 0.5rem;
+    z-index: 10;
+    display: block;
+  }
+  
+  .sidebar.open {
+    transform: translateX(calc(-250px - 1rem));
+  }
+
+.empty__cart__text{
+  color: #333;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+@media (max-width: 330px) {
+    .sidebar{
+        width: 90%;
+        right: -90%;
+    }
+    .sidebar.open {
+        transform: translateX(calc(-100% - 1rem));
+      }
+}
+
+  .sidebar__container__close_button{
+    width: 100%;
+    display: flex;
+  }
+
+  .sidebar__close_button{
+    margin-left: auto;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: .2rem;
+    padding: .5rem .5rem;
+  }
+
+  .sidebar__close_button:hover{
+    background-color: $hover-color;
+  }
+  
+  .sidebar__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: -40px;
+    color: black;
+    background-color: black;
+  }
+  
+  .sidebar__icon {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+  }
+  
+  .sidebar__content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y:auto;
+    height: 90%;
+  }
+
+  .sidebar__content::-webkit-scrollbar {
+    width: 10px; 
+  }
+  
+  .sidebar__content::-webkit-scrollbar-track {
+    background-color: white; 
+    border-radius: 10px; 
+  }
+  
+  .sidebar__content::-webkit-scrollbar-thumb {
+    background-color: $hover-color; 
+    border-radius: 10px; 
+  }
+  
+  .sidebar__content h2 {
+    margin-top: 0;
+  }
+  
+  .sidebar__content p {
+    margin-bottom: 0;
+  }
+  

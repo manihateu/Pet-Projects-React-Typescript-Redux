@@ -1,0 +1,56 @@
+@import url('../../styles/constants.scss');
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: $main-color;
+    color: $second-color;
+    border-radius: .5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  
+    a {
+      text-decoration: none;
+    }
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 24px;
+    span {
+      color: aqua;
+    }
+  }
+  
+  .header__buttons {
+    display: flex;
+  }
+  
+  .header__button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: .2rem;
+    padding: .5rem .5rem;
+  }
+  
+  .header__button:hover {
+    background-color: $hover-color;
+  }
+  
+  .header__icon {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+  }
